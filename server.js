@@ -34,10 +34,7 @@ const server = createServer();
   const userSocketMap = {}
 
   mongoose
-    .connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    .connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.error("MongoDB connection error:", err))
 
@@ -226,7 +223,7 @@ const server = createServer();
   //   console.log("Server running on http://<Your-Laptop-IP>:3000")
   // })
 
-  const PORT = process.env.PORT || 3001; // Use Railway's assigned port
+  const PORT = process.env.PORT ; // Use Railway's assigned port
 server.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
